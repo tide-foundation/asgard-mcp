@@ -1,0 +1,38 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+[*.{json,props,targets,csproj,slnx,xml,yml,yaml}]
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
+
+# C# style. Rules at "warning" are enforced in the build (EnforceCodeStyleInBuild in Directory.Build.props).
+[*.cs]
+csharp_style_namespace_declarations = file_scoped:warning
+csharp_prefer_braces = when_multiline:warning
+dotnet_style_qualification_for_field = false:warning
+dotnet_style_qualification_for_property = false:warning
+dotnet_style_qualification_for_method = false:warning
+dotnet_style_qualification_for_event = false:warning
+dotnet_style_predefined_type_for_locals_parameters_members = true:warning
+dotnet_style_readonly_field = true:warning
+dotnet_style_require_accessibility_modifiers = for_non_interface_members:warning
+dotnet_sort_system_directives_first = true
+
+# Unused usings (IDE0005) needs the XML doc file to report during build, so it is not enforced here;
+# the IDE still shows it.
+dotnet_diagnostic.IDE0005.severity = suggestion
+
+# Tests: xUnit runs on its own synchronisation context, so ConfigureAwait adds noise.
+[tests/**.cs]
+dotnet_diagnostic.CA2007.severity = none
+# Test method names use underscores to read as sentences.
+dotnet_diagnostic.CA1707.severity = none

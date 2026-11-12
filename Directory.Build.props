@@ -1,0 +1,19 @@
+<Project>
+  <!-- Settings shared by every project in the solution. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+
+    <!-- Code quality: the .NET analyzers at their "recommended" level, plus the style rules in
+         .editorconfig, checked on every build. Any warning fails the build. -->
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+    <Authors>Tide Foundation</Authors>
+    <RepositoryUrl>https://github.com/tide-foundation/asgard-mcp</RepositoryUrl>
+    <Version>0.1.0-beta</Version>
+  </PropertyGroup>
+</Project>

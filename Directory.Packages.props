@@ -1,0 +1,17 @@
+<Project>
+  <!-- Central package management: every NuGet version lives here, not in the .csproj files. -->
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <!-- Versions below also apply when a package is pulled in transitively, so a patched version
+         listed here replaces an older one requested by a dependency. -->
+    <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageVersion Include="ModelContextProtocol" Version="2.4.0" />
+    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="10.0.15" />
+
+    <!-- Tests (xUnit v3 runs on Microsoft.Testing.Platform; see "test" in global.json) -->
+    <PackageVersion Include="xunit.v3" Version="4.0.3" />
+  </ItemGroup>
+</Project>

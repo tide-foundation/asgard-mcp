@@ -1,0 +1,9 @@
+{
+  "servers": {
+    "asgard": {
+      "type": "stdio",
+      "command": "dotnet",
+      "args": ["run", "--project", "${workspaceFolder}/src/Asgard.Mcp"]
+    }
+  }
+}

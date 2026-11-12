@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "asgard": {
+      "type": "stdio",
+      "command": "dotnet",
+      "args": ["run", "--project", "src/Asgard.Mcp"]
+    },
+    "tide": {
+      "type": "http",
+      "url": "http://localhost:9001/https://mcp.tide.org/mcp"
+    },
+    "weather": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", " @dangahagan/weather-mcp@latest"]
+    }
+  }
+}

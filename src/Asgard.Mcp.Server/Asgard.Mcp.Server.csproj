@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    The MCP server itself: tools, server instructions and services.
+    It has no transport. Hosts (src/Asgard.Mcp for stdio) call AddAsgardMcpServer()
+    and then choose a transport. Keeping it a library lets tests run the server in-memory.
+  -->
+  <PropertyGroup>
+    <RootNamespace>Asgard.Mcp.Server</RootNamespace>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ModelContextProtocol" />
+  </ItemGroup>
+
+</Project>

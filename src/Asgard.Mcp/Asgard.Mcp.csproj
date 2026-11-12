@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    stdio host for the Asgard MCP server. MCP clients (Claude Code, VS Code, ...) start this
+    process and talk JSON-RPC over stdin/stdout. Based on Microsoft's `dotnet new mcpserver` template.
+  -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Asgard.Mcp</RootNamespace>
+    <RuntimeIdentifiers>win-x64;win-arm64;osx-arm64;linux-x64;linux-arm64;linux-musl-x64</RuntimeIdentifiers>
+
+    <!-- Package as a .NET tool that NuGet.org recognises as an MCP server. -->
+    <PackAsTool>true</PackAsTool>
+    <PackageType>McpServer</PackageType>
+    <ToolCommandName>asgard-mcp</ToolCommandName>
+
+    <!-- Self-contained single file: users don't need the .NET runtime installed. -->
+    <SelfContained>true</SelfContained>
+    <PublishSelfContained>true</PublishSelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+
+    <!-- TODO: confirm a package ID you can own on NuGet.org before publishing. -->
+    <PackageId>Tide.Asgard.Mcp</PackageId>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>AI;MCP;server;stdio;Tide</PackageTags>
+    <Description>MCP server that connects autonomous agents to the Tide Network.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include=".mcp/server.json" Pack="true" PackagePath="/.mcp/" />
+    <None Include="README.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Asgard.Mcp.Server/Asgard.Mcp.Server.csproj" />
+  </ItemGroup>
+
+</Project>

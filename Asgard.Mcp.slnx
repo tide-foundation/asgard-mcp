@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Asgard.Mcp.Server/Asgard.Mcp.Server.csproj" />
+    <Project Path="src/Asgard.Mcp/Asgard.Mcp.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Asgard.Mcp.Tests/Asgard.Mcp.Tests.csproj" />
+  </Folder>
+</Solution>
